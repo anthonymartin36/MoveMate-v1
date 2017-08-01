@@ -6,8 +6,8 @@ export default class Homes extends React.Component {
     this.state = {
       newHome: {}
     }
-    // this.submitHome = this.submitHome.bind(this)
-    // this.updateNewHomeDetails = this.updateNewHomeDetails.bind(this)
+    this.submitHome = this.submitHome.bind(this)
+    this.updateNewHomeDetails = this.updateNewHomeDetails.bind(this)
   }
   updateNewHomeDetails(e) {
     let newHome = this.state.newHome
