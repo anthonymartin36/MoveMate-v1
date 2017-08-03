@@ -1,10 +1,15 @@
 import React from 'react'
+import Homes from './Homes'
+import Address from './Address'
 
 const App = () => {
   return (
-    <h1>React development has begun!</h1>
+    <div>
+    <h1>Hello World!</h1>
+    <Homes />
+    <Address />
+    </div>
   )
 }
 
 export default App
-
