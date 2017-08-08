@@ -59,28 +59,31 @@ export default class Homes extends React.Component {
 
       <p> Street Parking :
       <select name="parking" onChange={(e) => this.updateJobDetails(e)}>
-        <option value="1"> Yes </option>
-        <option value="0"> No</option>
+        <option selected disabled>Is there parking near?</option>
+        <option value="Yes" > Yes </option>
+        <option value="No"> No</option>
       </select>
       </p>
 
       <p> Driveway :
       <select name="driveway" onChange={(e) => this.updateJobDetails(e)} >
-        <option value="yes"> Yes </option>
+        <option selected disabled>Is there a driveway?</option>
+        <option value="yes" > Yes </option>
         <option value="no"> No </option>
       </select>
       </p>
 
       <p> Type of Abode :
       <select name="abode" onChange={(e) => this.updateJobDetails(e)}>
-        <option value="House"> House </option>
+        <option selected disabled>What type of abode is your home?</option>
+        <option value="House" > House </option>
         <option value="Apartment"> Apartment </option>
       </select>
       </p>
 
       <p> Number of Bedrooms :
       <select name="bedrooms" onChange={(e) => this.updateJobDetails(e)}>
-        <option value="1"> 1 </option>
+        <option selected disabled>How many?</option>
         <option value="2"> 2</option>
         <option value="3"> 3</option>
         <option value="4"> 4</option>
@@ -89,7 +92,8 @@ export default class Homes extends React.Component {
 
       <p> Flights of inside Stairs :
       <select name="internalstairs" onChange={(e) => this.updateJobDetails(e)}>
-        <option value="1"> 1 </option>
+        <option selected disabled>How many flights?</option>
+        <option value="1"> 1</option>
         <option value="2"> 2</option>
         <option value="3"> 3</option>
         <option value="4"> 4</option>
@@ -98,6 +102,7 @@ export default class Homes extends React.Component {
 
       <p> Flights of outside Stairs :
       <select name="externalstairs" onChange={(e) => this.updateJobDetails(e)}>
+        <option selected disabled>How many flights?</option>
         <option value="1"> 1 </option>
         <option value="2"> 2</option>
         <option value="3"> 3</option>

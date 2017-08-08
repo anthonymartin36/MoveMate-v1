@@ -2,7 +2,7 @@
 exports.up = function(knex, Promise) {
   return knex.schema.createTableIfNotExists('job-details', function (table) {
     table.increments('job_details_id');
-    table.integer('job_id')
+    table.string('job_id')
     table.integer('bedrooms');
     table.integer('externalstairs');
     table.integer('internalstairs');

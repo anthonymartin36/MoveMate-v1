@@ -11,6 +11,7 @@ var db = require('../db/homeDb.js')
 
 router.post('/', function (req, res) {
   //console.log(req.body)
+  var jid = 0;
   var oldAddress = {
     street: req.body.oldStreet,
     area: req.body.oldArea,
@@ -37,9 +38,11 @@ router.post('/', function (req, res) {
         }
 
         db.postJob(jobOrder)
-          .then(function(job_id){
+          .then(function(jobId){
+            jid = jobId
+            console.log('Job ID:' + jid)
             var jobDetails = {
-              job_id: job_id,
+              job_id: jid[0],
               bedrooms: req.body.bedrooms,
               externalstairs: req.body.externalstairs,
               internalstairs: req.body.internalstairs,
@@ -47,11 +50,11 @@ router.post('/', function (req, res) {
               driveway: req.body.driveway,
               parking: req.body.parking,
               material: req.body.material,
-              old_address_id: oldId,
-              new_address_id: newId
+              old_address_id: oldId[0],
+              new_address_id: newId[0]
             }
             console.log(jobDetails)
-            db.postJob(jobDetails)
+            db.postJobDetails(jobDetails)
               .then(function(result){
                   console.log("Hmmm:" + result)
               })
