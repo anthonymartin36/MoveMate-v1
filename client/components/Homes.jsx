@@ -9,7 +9,7 @@ export default class Homes extends React.Component {
     }
     this.submitHome = this.submitHome.bind(this)
     this.updateNewHomeDetails = this.updateNewHomeDetails.bind(this)
-    this.finishAdd = this.finishAdd.bind(this)
+    //this.finishAdd = this.finishAdd.bind(this)
   }
   updateNewHomeDetails(e) {
     let newHome = this.state.newHome
@@ -22,26 +22,21 @@ export default class Homes extends React.Component {
   submitHome(e) {
     e.preventDefault()
     console.log(this.state.newHome)
-    insertAddress(this.state.newHome, this.props.finishAdd)
+    insertAddress(this.state.newHome, this.finishAdd.bind(this))
   }
   finishAdd(err){
     if(err){
       console.log(err)
-    } else {
-      this.loggingThis()//dont know what the FUCK is going on!!!!!!!!!!
     }
-  }
-  loggingThis(){
-    console.log('Address :', this.state.newHome)
   }
 
   render() {
     return (
       <form onSubmit={e => this.submitHome(e)}>
-        <input name="Address" placeholder="Address" type="text" onChange={(e) => this.updateNewHomeDetails(e)}/>
-        <input name="Area" placeholder="Area" type="text" onChange={(e) => this.updateNewHomeDetails(e)}/>
-        <input name="Town" placeholder="Town" type="text" onChange={(e) => this.updateNewHomeDetails(e)}/>
-        <input name="Postcode" placeholder="Postcode" type="text" onChange={(e) => this.updateNewHomeDetails(e)}/>
+        <input name="street" placeholder="street" type="text" onChange={(e) => this.updateNewHomeDetails(e)}/>
+        <input name="area" placeholder="Area" type="text" onChange={(e) => this.updateNewHomeDetails(e)}/>
+        <input name="town" placeholder="Town" type="text" onChange={(e) => this.updateNewHomeDetails(e)}/>
+        <input name="postcode" placeholder="Postcode" type="text" onChange={(e) => this.updateNewHomeDetails(e)}/>
         <input type="submit" />
         <p>{this.state.newHome.name}</p>
       </form>

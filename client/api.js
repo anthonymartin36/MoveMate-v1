@@ -11,7 +11,7 @@ export function insertAddress (newHome, callback) {
       if (err) {
         callback(err)
       } else {
-        callback(null, res.body)
+        callback(null)
       }
     })
 }

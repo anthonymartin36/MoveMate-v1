@@ -6,7 +6,13 @@ var db = require('../db/homeDb.js')
 router.post('/', function (req, res) {
   console.log(req.body)
   db.postAddress(req.body)
-  res.sendStatus(200)
+    .then( ()=> {
+      res.sendStatus(200)
+    })
+    .catch(err => {
+      console.log(err)
+      res.status(500).send(err + 'Server Error ')
+    })
 })
 
 module.exports = router
