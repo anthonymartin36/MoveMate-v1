@@ -1,4 +1,5 @@
 import React from 'react'
+import { insertAddress } from '../api'
 
 export default class Homes extends React.Component {
   constructor(props) {
@@ -8,6 +9,7 @@ export default class Homes extends React.Component {
     }
     this.submitHome = this.submitHome.bind(this)
     this.updateNewHomeDetails = this.updateNewHomeDetails.bind(this)
+    this.finishAdd = this.finishAdd.bind(this)
   }
   updateNewHomeDetails(e) {
     let newHome = this.state.newHome
@@ -16,14 +18,26 @@ export default class Homes extends React.Component {
     this.setState({newHome: newHome})
     console.log("the Address is:", this.state.newHome);
   }
+
   submitHome(e) {
     e.preventDefault()
-    console.log({e});
-    //console.log("the Address is:", this.state.newHome);
+    console.log(this.state.newHome)
+    insertAddress(this.state.newHome, this.props.finishAdd)
   }
+  finishAdd(err){
+    if(err){
+      console.log(err)
+    } else {
+      this.loggingThis()//dont know what the FUCK is going on!!!!!!!!!!
+    }
+  }
+  loggingThis(){
+    console.log('Address :', this.state.newHome)
+  }
+
   render() {
     return (
-      <form onSubmit={this.submitHome}>
+      <form onSubmit={e => this.submitHome(e)}>
         <input name="Address" placeholder="Address" type="text" onChange={(e) => this.updateNewHomeDetails(e)}/>
         <input name="Area" placeholder="Area" type="text" onChange={(e) => this.updateNewHomeDetails(e)}/>
         <input name="Town" placeholder="Town" type="text" onChange={(e) => this.updateNewHomeDetails(e)}/>

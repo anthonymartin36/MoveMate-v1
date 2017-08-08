@@ -5,26 +5,18 @@ var request = require('superagent')
 var server = express()
 var cors = require('cors')
 
-var homeRouter = require('./routes/home')
+var home = require('./routes/home')
 
-
-const corsOptions = {
-  origin: true,
-  methods: 'GET,PUT,POST,DELETE',
-  preflightContinue: false,
-  credentials: true
-}
-
-server.use(cors(corsOptions))
+//server.use(cors(corsOptions))
 
 server.use(bodyParser.json())
 server.use(express.static(path.join(__dirname, '../public')))
 
 
-server.use('/home', homeRouter)
+server.use('/', home)
 
 module.exports = function(db) {
-  server.set('db', db)
+  server.set('homeDb', db)
   return server
 }
 

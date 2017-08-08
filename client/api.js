@@ -2,11 +2,16 @@ import request from 'superagent'
 
 var requestUrl = 'http://localhost:3000/'
 
-export function requestCats(callback) {
+
+export function insertAddress (newHome, callback) {
   request
-    .get(requestUrl + '/home')
+    .post(requestUrl)
+    .send(newHome)
     .end((err, res) => {
-      if (err) callback(err)
-      else callback(null, res.body)
+      if (err) {
+        callback(err)
+      } else {
+        callback(null, res.body)
+      }
     })
 }

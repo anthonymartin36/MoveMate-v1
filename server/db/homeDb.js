@@ -1,12 +1,11 @@
-function getHomes (connection) {
-  return connection('home')
-}
+var config = require('../../knexfile').development
+var db = require('knex')(config)
 
-function putHome (connection, house){
-  return connection('home').insert(house)
-}
 
-module.exports = {
-  getHomes,
-  putHome
+// function getAddresses(){
+//   return db('addresses')
+// }
+
+function postAddress(address){
+  return db('addresses').insert(address)
 }
