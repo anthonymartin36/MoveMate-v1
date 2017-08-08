@@ -20,7 +20,7 @@ module.exports = function(db) {
   return server
 }
 
-
+module.exports = server
 
 
 // server.get('/v1', function(req, res){
@@ -46,6 +46,3 @@ module.exports = function(db) {
 //     })
 //
 // })
-
-
-module.exports = server
