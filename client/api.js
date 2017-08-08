@@ -3,10 +3,11 @@ import request from 'superagent'
 var requestUrl = 'http://localhost:3000/'
 
 
-export function insertAddress (newHome, callback) {
+export function insertAddress (job, callback) {
+  console.log("Job Details" + job)
   request
     .post(requestUrl)
-    .send(newHome)
+    .send(job)
     .end((err, res) => {
       if (err) {
         callback(err)
