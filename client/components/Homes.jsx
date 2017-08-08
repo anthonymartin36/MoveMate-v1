@@ -65,16 +65,16 @@ export default class Homes extends React.Component {
       </p>
 
       <p> Driveway :
-      <select name="addressType" onChange={(e) => this.updateJobDetails(e)} >
-        <option value="1"> Yes </option>
-        <option value="0"> No </option>
+      <select name="driveway" onChange={(e) => this.updateJobDetails(e)} >
+        <option value="yes"> Yes </option>
+        <option value="no"> No </option>
       </select>
       </p>
 
       <p> Type of Abode :
-      <select name="addressType" onChange={(e) => this.updateJobDetails(e)}>
-        <option value="1"> House </option>
-        <option value="0"> Apartment </option>
+      <select name="abode" onChange={(e) => this.updateJobDetails(e)}>
+        <option value="House"> House </option>
+        <option value="Apartment"> Apartment </option>
       </select>
       </p>
 
@@ -88,7 +88,7 @@ export default class Homes extends React.Component {
       </p>
 
       <p> Flights of inside Stairs :
-      <select name="internalStairs" onChange={(e) => this.updateJobDetails(e)}>
+      <select name="internalstairs" onChange={(e) => this.updateJobDetails(e)}>
         <option value="1"> 1 </option>
         <option value="2"> 2</option>
         <option value="3"> 3</option>

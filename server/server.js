@@ -13,8 +13,13 @@ server.use(bodyParser.json())
 server.use(express.static(path.join(__dirname, '../public')))
 
 
-server.use('/', home)
-
+server.use('/v1', home)
+server.get('/thanks', (req, res) => {
+  res.send('<a href="/">Thanks!</a>')
+})
+server.get('/error', (req, res) => {
+  res.send('<a href="/">error!</a>')
+})
 module.exports = function(db) {
   server.set('homeDb', db)
   return server

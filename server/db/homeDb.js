@@ -10,6 +10,15 @@ function postAddress(address){
   return db('addresses').insert(address)
 }
 
+function postJob(job){
+  return db('jobs').insert(job)
+}
+
+function postJobDetails(jobDets){
+  return db('job-details').insert(jobDets)
+}
 module.exports = {
-  postAddress
+  postAddress,
+  postJob,
+  postJobDetails 
 }
