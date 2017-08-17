@@ -20,10 +20,6 @@ server.get('/thanks', (req, res) => {
 server.get('/error', (req, res) => {
   res.send('<a href="/">error!</a>')
 })
-module.exports = function(db) {
-  server.set('homeDb', db)
-  return server
-}
 
 module.exports = server
 

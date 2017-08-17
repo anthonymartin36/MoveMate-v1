@@ -1,12 +1,11 @@
-import test from 'tape'
+import test from 'ava'
 import React from 'react'
 import { shallow } from 'enzyme'
 
-import App from '../client/components/App'
+import App from '../client/components/App.jsx'
 
 test('<App />', t => {
-  const expected = 'React development has begun!'
-  const wrapper = shallow(<App />)
-  t.equal(wrapper.text(), expected)
-  t.end()
+  const expected = 'Move Mate <Homes />'
+  var wrapper = shallow(<App />)
+  t.is(wrapper.text(), expected)
 })

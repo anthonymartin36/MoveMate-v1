@@ -10,6 +10,7 @@ var db = require('../db/homeDb.js')
 // }
 
 router.post('/', function (req, res) {
+
   //console.log(req.body)
   var jid = 0;
   var oldAddress = {
@@ -25,9 +26,9 @@ router.post('/', function (req, res) {
     postcode: req.body.newPostcode
   }
 
-  db.postAddress(oldAddress)
+  db.postAddress(oldAddress, req.app.get('homeDb'))
     .then(function (oldId){
-      db.postAddress(newAddress)
+      db.postAddress(newAddress, req.app.get('homeDb'))
       .then(function(newId){
 
         var jobOrder = {
@@ -37,7 +38,7 @@ router.post('/', function (req, res) {
           landline: req.body.landline
         }
 
-        db.postJob(jobOrder)
+        db.postJob(jobOrder, req.app.get('homeDb'))
           .then(function(jobId){
             jid = jobId
             console.log('Job ID:' + jid)
@@ -54,7 +55,7 @@ router.post('/', function (req, res) {
               new_address_id: newId[0]
             }
             console.log(jobDetails)
-            db.postJobDetails(jobDetails)
+            db.postJobDetails(jobDetails, req.app.get('homeDb'))
               .then(function(result){
                   console.log("Hmmm:" + result)
               })
