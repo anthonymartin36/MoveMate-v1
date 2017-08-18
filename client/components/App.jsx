@@ -1,11 +1,15 @@
 import React from 'react'
+
 import Homes from './Homes'
+import Header from './Header'
+import Footer from './Footer'
 
 const App = () => {
   return (
     <div>
-    <h1>Move Mate </h1>
+    <Header />
     <Homes />
+    <Footer />
     </div>
   )
 }

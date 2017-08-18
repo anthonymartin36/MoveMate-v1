@@ -1,5 +1,5 @@
 import React from 'react'
-import { insertAddress } from '../api'
+import { insertAddress, getAddresses } from '../api'
 
 export default class Homes extends React.Component {
   constructor(props) {
@@ -20,9 +20,10 @@ export default class Homes extends React.Component {
   }
 
   submitJob(e) {
-    e.preventDefault()
     console.log(this.state.job)
     insertAddress(this.state.job, this.finishAdd.bind(this))
+    document.location = '/'
+    e.preventDefault()
   }
   finishAdd(err){
     if(err){
@@ -84,6 +85,7 @@ export default class Homes extends React.Component {
       <p> Number of Bedrooms :
       <select name="bedrooms" onChange={(e) => this.updateJobDetails(e)}>
         <option selected disabled>How many?</option>
+        <option value="1"> 1</option>
         <option value="2"> 2</option>
         <option value="3"> 3</option>
         <option value="4"> 4</option>
@@ -98,9 +100,8 @@ export default class Homes extends React.Component {
         <option value="3"> 3</option>
         <option value="4"> 4</option>
       </select>
-      </p>
-
-      <p> Flights of outside Stairs :
+    </p>
+    <p>
       <select name="externalstairs" onChange={(e) => this.updateJobDetails(e)}>
         <option selected disabled>How many flights?</option>
         <option value="1"> 1 </option>
@@ -114,7 +115,9 @@ export default class Homes extends React.Component {
       <p>
         <textarea name="material" rows="4" cols="50" onChange={(e) => this.updateJobDetails(e)} ></textarea>
       </p>
-      <p></p><input type="submit" /> <input type="submit" value="clear" onClick="" />
+      <p></p>
+      <input type="submit" />
+      <input type="submit" value="clear" onClick="" />
     </form>
     </div>
     )

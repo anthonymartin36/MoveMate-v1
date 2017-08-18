@@ -13,9 +13,22 @@ function postJob(job, db){
 function postJobDetails(jobDets, db){
   return db('job-details').insert(jobDets)
 }
+
+function getJob(id, db){
+  return db('jobs')
+  .where('job_number', id)
+}
+
+function getJobDetail(id, db){
+  return db('job-details')
+  .where('job_id', id)
+}
+
 module.exports = {
   postAddress,
   postJob,
   postJobDetails,
-  getAddresses
+  getAddresses,
+  getJob,
+  getJobDetail
 }

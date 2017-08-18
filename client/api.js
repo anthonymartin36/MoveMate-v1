@@ -11,10 +11,9 @@ export function insertAddress (job, callback) {
     .end((err, res) => {
       if (err) {
         callback(err)
-        document.location = '/error'
       } else {
-        document.location = '/thanks'
         callback(null)
+        document.location = '/'
       }
     })
 }

@@ -2,12 +2,6 @@ var express = require('express')
 var router = express.Router()
 
 var db = require('../db/homeDb.js')
-// var address = {
-//   street: ,
-//   area: ,
-//   town: ,
-//   postcode:
-// }
 
 router.post('/', function (req, res) {
 
@@ -60,7 +54,27 @@ router.post('/', function (req, res) {
                   console.log("Hmmm:" + result)
               })
             })
-      })
+          })
+    })
+    .catch(err => {
+      console.log(err)
+      res.status(500).send(err + 'Server Error ')
+    })
+})
+
+router.get('/:id', function (req, res) {
+
+  db.getJob(req.params.id, req.app.get('homeDb'))
+    .then(function(data){
+      res.json(data)
+    })
+    .catch(err => {
+      console.log(err)
+      res.status(500).send(err + 'Server Error ')
+    })
+    .getJobDetail(req.params.id, req.app.get('homeDb'))
+    .then(function(data){
+      res.json(data)
     })
     .catch(err => {
       console.log(err)
