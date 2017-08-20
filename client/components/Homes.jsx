@@ -116,8 +116,10 @@ export default class Homes extends React.Component {
         <textarea name="material" rows="4" cols="50" onChange={(e) => this.updateJobDetails(e)} ></textarea>
       </p>
       <p></p>
-      <input type="submit" />
-      <input type="submit" value="clear" onClick="" />
+        <input type="submit" />
+
+      <button className="btn btn-primary" type="button">Continue</button>
+      <button className="btn btn-default" type="button">Clear</button>
     </form>
     </div>
     )

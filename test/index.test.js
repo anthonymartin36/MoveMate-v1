@@ -14,13 +14,13 @@ test('Test React: <App />', t => {
 })
 
 test('Test React: <Header />', t => {
-  const expected = 'Move Mate'
+  const expected = 'header'
   var wrapper = shallow(<Header />)
-  t.is(wrapper.text().trim(), expected)
+  t.is(wrapper.props().className, expected)
 })
 
 test('Test React: <Footer />', t => {
-  const expected = '<Contactus />'
+  const expected = 'blogFooter'
   var wrapper = shallow(<Footer />)
-  t.is(wrapper.text().trim(), expected)
+  t.is(wrapper.props().className, expected)
 })

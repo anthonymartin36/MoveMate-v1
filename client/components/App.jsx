@@ -7,9 +7,9 @@ import Footer from './Footer'
 const App = () => {
   return (
     <div>
-    <Header />
-    <Homes />
-    <Footer />
+    <Header className="header" />
+    <Homes  />
+    <Footer className="footer"/>
     </div>
   )
 }

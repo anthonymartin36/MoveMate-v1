@@ -6,6 +6,7 @@ module.exports = (test, server) => {
   // In our tests, we can get at the database as `t.context.db`.
   test.beforeEach(function (t) {
     t.context.connection = knex(config)
+    //console.log(t.context.connection)
     if (server) {
       server.set('homeDb', t.context.connection)
       t.context.app = server
