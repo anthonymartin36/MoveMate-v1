@@ -1,17 +1,24 @@
 var path = require('path')
 var express = require('express')
+const passport = require('passport')
+
 var bodyParser = require('body-parser')
 var request = require('superagent')
 var server = express()
 var cors = require('cors')
 
 var home = require('./routes/home')
+var users = require('./routes/auth')
+
+server.use(passport.initialize())
 
 //server.use(cors(corsOptions))
 
 server.use(bodyParser.json())
 server.use(express.static(path.join(__dirname, '../public')))
 
+
+server.use('/api/v1/auth', users)
 
 server.use('/v1', home)
 server.get('/thanks', (req, res) => {
